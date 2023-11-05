@@ -6,19 +6,6 @@ const {readFile, writeFile} = require('fs').promises
 const { generateMarkdown } = require('../utils/generateMarkdown')
 
 
-fs = {
-    promises: {
-        writeFile: function (){},
-        readFile: function (){}
-    }
-    
-}
-
-// const { log } = require('console')
-
-
-
-
 // TODO: Create an array of questions for user input
 // const questions = [];
 
