@@ -3,8 +3,7 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const {readFile, writeFile} = require('fs').promises
 
-const { log } = require('console')
-
+const { generateMarkdown } = require('../utils/generateMarkdown')
 
 
 fs = {
@@ -12,13 +11,21 @@ fs = {
         writeFile: function (){},
         readFile: function (){}
     }
-
+    
 }
+
+// const { log } = require('console')
+
+
+
+
+// TODO: Create an array of questions for user input
+// const questions = [];
 
 let readmeQuestions = [
     {
         type: 'input',
-        name: 'projectAnswer',
+        name: 'title',
         message: 'What is the name of your project?'
     },
     {
@@ -67,18 +74,42 @@ let readmeQuestions = [
         message: 'What is your email address? (Will fill out the questions section)'
     },
 ]
-inquirer.prompt(readmeQuestions)
-.then(res => {
-    console.log(res);
-})
-.then(data => {
-    readmeQuestions = data
-    return readFile('answers.json', 'utf-8')
-})
+
+// TODO: Create a function to initialize app
+// function init() {}
+function init() {
+    inquirer.prompt(readmeQuestions)
+    .then(res => {
+        // console.log(res)
+        const template = generateMarkdown(res)
+    })
+    .then(data => {
+        readmeQuestions = data
+        return readFile('', 'utf-8')
+    })
+
+    // TODO: Create a function to write README file
+    // function writeToFile(fileName, data) {}
+
 .then(db =>{
 const parsedData = JSON.parse(db);
 parsedData.push(readmeQuestions)
-return writeFile ('answers.json', JSON.stringify(parsedData))
+return writeFile ('../utils/README', template, 'utf-8', (error) => {
+    if(error) {
+        console.log(error);
+    }
+
+})
 })
 .then(() => console.log('Nicely Done'))
 .catch(err => console.log(err))
+}
+
+// Function call to initialize app
+// init();
+
+init()
+
+
+
+
