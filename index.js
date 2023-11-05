@@ -1,9 +1,11 @@
 const inquirer = require('inquirer') 
 
 const fs = require('fs')
+const {readFile, writeFile} = require('fs').promises
+
 const { log } = require('console')
 
-const [readFile, writeFile] = require('fs').promises
+
 
 fs = {
     promises: {
@@ -69,3 +71,14 @@ inquirer.prompt(readmeQuestions)
 .then(res => {
     console.log(res);
 })
+.then(data => {
+    readmeQuestions = data
+    return readFile('answers.json', 'utf-8')
+})
+.then(db =>{
+const parsedData = JSON.parse(db);
+parsedData.push(readmeQuestions)
+return writeFile ('answers.json', JSON.stringify(parsedData))
+})
+.then(() => console.log('Nicely Done'))
+.catch(err => console.log(err))
