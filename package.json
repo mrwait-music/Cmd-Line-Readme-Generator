@@ -1,0 +1,22 @@
+{
+  "name": "readme_generator",
+  "version": "1.0.0",
+  "description": "Readme Generator for Projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mrwait-music/Cmd-Line-Readme-Generator.git"
+  },
+  "author": "Brennan Mitchell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrwait-music/Cmd-Line-Readme-Generator/issues"
+  },
+  "homepage": "https://github.com/mrwait-music/Cmd-Line-Readme-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
