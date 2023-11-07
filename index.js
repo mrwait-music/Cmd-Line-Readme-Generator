@@ -32,12 +32,13 @@ let readmeQuestions = [
     },
     {
         type: 'input',
-        name: 'description',
-        message: 'How would you describe how to use this project?'
+        name: 'usage',
+        message: 'How would you use this project?'
     },
     {
         type: 'list',
         name: 'license',
+        choices: ['MIT', 'APACHE-2.0', 'GPL-3.0', 'BSD-3', 'None'],
         message: 'Please select one of the following license options to receive a license badge.'
     },
     {
@@ -69,34 +70,22 @@ function init() {
     .then(res => {
         // console.log(res)
         const template = generateMarkdown(res)
+        writeToFile('../utils/README.md', template)
     })
-    .then(data => {
-        readmeQuestions = data
-        return readFile('', 'utf-8')
-    })
-
-    // TODO: Create a function to write README file
-    // function writeToFile(fileName, data) {}
-
-.then(db =>{
-const parsedData = JSON.parse(db);
-parsedData.push(readmeQuestions)
-return writeFile ('../utils/README', template, 'utf-8', (error) => {
-    if(error) {
-        console.log(error);
-    }
-
-})
-})
-.then(() => console.log('Nicely Done'))
-.catch(err => console.log(err))
 }
 
+    function writeToFile(fileName, data) {
+        console.log(fileName, data);
+        return writeFile (fileName, data, 'utf-8', (error) => {
+            if(error) {
+                console.log(error);
+            }
+    })
+}
 // Function call to initialize app
 // init();
 
 init()
-
 
 
 
