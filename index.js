@@ -75,7 +75,7 @@ function init() {
 }
 
     function writeToFile(fileName, data) {
-        console.log(fileName, data);
+        // console.log(fileName, data);
         return writeFile (fileName, data, 'utf-8', (error) => {
             if(error) {
                 console.log(error);
