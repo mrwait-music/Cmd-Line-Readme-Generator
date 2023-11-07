@@ -1,6 +1,6 @@
 # Cmd-Line-Readme-Generator
 
-![Alt text](<../utils/Untitled_ Nov 7, 2023 4_22 PM.gif>)
+![Alt text](assets/screenRecord.gif)
 
 ## About
 This is an application that will provide the user with a professional readme in minutes!
