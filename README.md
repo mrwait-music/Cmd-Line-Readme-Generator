@@ -20,4 +20,4 @@ Open source student project.
 ## Contact
 Brennan Mitchell - @mr_wait_music on twitter or brennanmitchell1192@gmail.com
 
-Project Link: https://mrwait-music.github.io/Cmd-Line-Readme-Generator/
+Project Link: https://github.com/mrwait-music/Cmd-Line-Readme-Generator
